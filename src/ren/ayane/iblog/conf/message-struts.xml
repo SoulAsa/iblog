@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="message-sysAction" namespace="/sys" extends="base-default">
+		<action name="message_*" class="ren.ayane.iblog.action.MessageAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/sys/message/{1}.jsp</result>
+			<result name="listUI">/WEB-INF/jsp/sys/message/listUI.jsp</result>
+			<result name="list" type="redirectAction">
+				<param name="actionName">message_list</param>
+			</result>
+		</action>
+	</package>
+	<package name="messageJson-sysAction" namespace="/sys" extends="json-default">
+		<action name="message_list" class="ren.ayane.iblog.action.MessageAction" method="list">
+			<result type="json">
+				<param name="root">json_map</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

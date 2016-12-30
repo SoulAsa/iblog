@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="saying-sysAction" namespace="/sys" extends="base-default">
+		<action name="saying_*" class="ren.ayane.iblog.action.SayingAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/sys/saying/{1}.jsp</result>
+			<result name="listUI">/WEB-INF/jsp/sys/saying/listUI.jsp</result>
+			<result name="list" type="redirectAction">
+				<param name="actionName">saying_list</param>
+			</result>
+		</action>
+	</package>
+	<package name="sayingJson-sysAction" namespace="/sys" extends="json-default">
+		<action name="saying_list" class="ren.ayane.iblog.action.SayingAction" method="list">
+			<result type="json">
+				<param name="root">json_map</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

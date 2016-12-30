@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="admin-sysAction" namespace="/sys" extends="base-default">
+		<action name="admin_*" class="ren.ayane.iblog.action.AdminAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/sys/admin/{1}.jsp</result>
+			<result name="infoUI" type="redirectAction">
+				<param name="actionName">admin_info</param>
+			</result>
+		</action>
+	</package>
+
+</struts>
